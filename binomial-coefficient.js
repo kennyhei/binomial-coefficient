@@ -21,6 +21,10 @@
 
 function C(n,k) {
 
+    if (n === k || k === 0) {
+        return 1;
+    }
+
     // Calculate remainder
     var remainder = n - k;
 
