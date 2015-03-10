@@ -19,6 +19,15 @@
 // -----------
 // k! (n - k)!
 
+function factorial(value) {
+
+    if (value === 1) {
+        return value;
+    }
+
+    return value * factorial(value - 1);
+}
+
 function C(n,k) {
 
     // Check special cases
@@ -42,15 +51,6 @@ function C(n,k) {
     return n / (k * remainder);
 }
 
-function factorial(value) {
-
-    if (value === 1) {
-        return value;
-    }
-
-    return value * factorial(value - 1);
-}
-
 /**
  * TASK 2: IMPLEMENT: Tests for function C
  *
@@ -70,7 +70,7 @@ function factorial(value) {
             };
         },
 
-        kHasZeroValue: function() {
+        testErroneousZeroValue: function() {
 
             var pass = true;
 
@@ -86,7 +86,7 @@ function factorial(value) {
             };
         },
 
-        resultEqualsN: function() {
+        testResultEqualsN: function() {
 
             var n = 5,
                 k = 4;
@@ -99,7 +99,7 @@ function factorial(value) {
             };
         },
 
-        resultEqualsN2: function() {
+        testResultEqualsN2: function() {
 
             var n = 9,
                 k = 1;
