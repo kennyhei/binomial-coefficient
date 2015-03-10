@@ -21,6 +21,11 @@
 
 function C(n,k) {
 
+    // Check special cases
+    if (!Number.isInteger(n) || !Number.isInteger(k)) {
+        return NaN;
+    }
+
     if (n === k || k === 0) {
         return 1;
     }
@@ -104,6 +109,28 @@ function factorial(value) {
             return {
                 success: pass,
                 message: (!pass) ? 'Expected C to return n when k equals 1.' : ''
+            };
+        },
+
+        testInvalidStringArguments: function() {
+
+            // Check both parameters
+            var pass = Number.isNaN(C('moi', 5)) ? Number.isNaN(C(5, 'hei')) : false;
+
+            return {
+                success: pass,
+                message: (!pass) ? 'Expected C to return NaN when passing string as argument.' : ''
+            };
+        },
+
+        testInvalidFloatArguments: function() {
+
+            // Check both parameters
+            var pass = Number.isNaN(C(5.2, 2)) ? Number.isNaN(C(3, 2.4)) : false;
+
+            return {
+                success: pass,
+                message: (!pass) ? 'Expected C to return NaN when passing float as argument.' : ''
             };
         }
 
