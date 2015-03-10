@@ -81,7 +81,7 @@ function factorial(value) {
             };
         },
 
-        coefficientEqualsN: function() {
+        resultEqualsN: function() {
 
             var n = 5,
                 k = 4;
@@ -94,7 +94,7 @@ function factorial(value) {
             };
         },
 
-        coefficientEqualsN2: function() {
+        resultEqualsN2: function() {
 
             var n = 9,
                 k = 1;
