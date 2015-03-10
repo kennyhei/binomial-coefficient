@@ -115,7 +115,7 @@ function C(n,k) {
         testInvalidStringArguments: function() {
 
             // Check both parameters
-            var pass = Number.isNaN(C('moi', 5)) ? Number.isNaN(C(5, 'hei')) : false;
+            var pass = Number.isNaN(C('moi', 5)) && Number.isNaN(C(5, 'hei'));
 
             return {
                 success: pass,
@@ -126,7 +126,7 @@ function C(n,k) {
         testInvalidFloatArguments: function() {
 
             // Check both parameters
-            var pass = Number.isNaN(C(5.2, 2)) ? Number.isNaN(C(3, 2.4)) : false;
+            var pass = Number.isNaN(C(5.2, 2)) && Number.isNaN(C(3, 2.4));
 
             return {
                 success: pass,
