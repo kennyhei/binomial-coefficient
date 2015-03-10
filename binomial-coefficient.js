@@ -79,6 +79,32 @@ function factorial(value) {
                 success: pass,
                 message: (!pass) ? 'Expected C to return 1.' : ''
             };
+        },
+
+        coefficientEqualsN: function() {
+
+            var n = 5,
+                k = 4;
+
+            var pass = C(n,k) === n;
+
+            return {
+                success: pass,
+                message: (!pass) ? 'Expected C to return n when k equals n - 1.' : ''
+            };
+        },
+
+        coefficientEqualsN2: function() {
+
+            var n = 9,
+                k = 1;
+
+            var pass = C(n,k) === n;
+
+            return {
+                success: pass,
+                message: (!pass) ? 'Expected C to return n when k equals 1.' : ''
+            };
         }
 
     };
