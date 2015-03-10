@@ -61,6 +61,22 @@ function factorial(value) {
             };
         },
 
+        kHasZeroValue: function() {
+
+            var pass = true;
+
+            try {
+                C(2,0);
+            } catch (error) {
+                pass = false;
+            }
+
+            return {
+                success: pass,
+                message: (!pass) ? 'Expected C to return 1.' : ''
+            };
+        }
+
     };
 
     //  ---- You shouldn't change the code below this line  ----
