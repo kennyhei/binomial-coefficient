@@ -19,6 +19,25 @@
 // -----------
 // k! (n - k)!
 
+function validArguments(n, k) {
+
+    // Check if integers
+    if (!Number.isInteger(n) || !Number.isInteger(k)) {
+        return false;
+    }
+
+    // Negative integers not allowed
+    if (n < 0 || k < 0) {
+        return false;
+    }
+
+    if (k > n) {
+        return false;
+    }
+
+    return true;
+}
+
 function factorial(value) {
 
     if (value === 1) {
@@ -28,10 +47,9 @@ function factorial(value) {
     return value * factorial(value - 1);
 }
 
-function C(n,k) {
+function C(n, k) {
 
-    // Check special cases
-    if (!Number.isInteger(n) || !Number.isInteger(k)) {
+    if (!validArguments(n, k)) {
         return;
     }
 
@@ -132,6 +150,26 @@ function C(n,k) {
                 success: pass,
                 message: (!pass) ? 'Expected C to return undefined when passing float as argument.' : ''
             };
+        },
+
+        testNegativeArguments: function() {
+
+            var pass = C(-4, 2) === undefined && C(4, -2) === undefined;
+
+            return {
+                success: pass,
+                message: (!pass) ? 'Expected C to return undefined when passing negative integers.' : ''
+            }
+        },
+
+        testArguments: function() {
+
+            var pass = C(3,5) === undefined;
+
+            return {
+                success: pass,
+                message: (!pass) ? 'Expected C to return undefined when k is bigger than n.' : ''
+            }
         }
 
     };
